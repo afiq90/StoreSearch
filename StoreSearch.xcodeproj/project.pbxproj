@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD5C882A1F286DCB0029EEEB /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5C88291F286DCB0029EEEB /* SearchResultCell.swift */; };
 		AD93A1911F282EEE005C151B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD93A1901F282EEE005C151B /* AppDelegate.swift */; };
-		AD93A1931F282EEF005C151B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD93A1921F282EEF005C151B /* ViewController.swift */; };
+		AD93A1931F282EEF005C151B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD93A1921F282EEF005C151B /* SearchViewController.swift */; };
 		AD93A1961F282EEF005C151B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD93A1941F282EEF005C151B /* Main.storyboard */; };
 		AD93A1991F282EEF005C151B /* StoreSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD93A1971F282EEF005C151B /* StoreSearch.xcdatamodeld */; };
 		AD93A19B1F282EEF005C151B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD93A19A1F282EEF005C151B /* Assets.xcassets */; };
 		AD93A19E1F282EEF005C151B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD93A19C1F282EEF005C151B /* LaunchScreen.storyboard */; };
 		AD93A1A91F282EEF005C151B /* StoreSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD93A1A81F282EEF005C151B /* StoreSearchTests.swift */; };
 		AD93A1B41F282EEF005C151B /* StoreSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD93A1B31F282EEF005C151B /* StoreSearchUITests.swift */; };
+		AD93A1C21F284283005C151B /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD93A1C11F284283005C151B /* SearchResult.swift */; };
+		AD93A1C41F285194005C151B /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD93A1C31F285194005C151B /* SearchResultCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD5C88291F286DCB0029EEEB /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		AD93A18D1F282EEE005C151B /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD93A1901F282EEE005C151B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AD93A1921F282EEF005C151B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AD93A1921F282EEF005C151B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AD93A1951F282EEF005C151B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AD93A1981F282EEF005C151B /* StoreSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoreSearch.xcdatamodel; sourceTree = "<group>"; };
 		AD93A19A1F282EEF005C151B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 		AD93A1AF1F282EEF005C151B /* StoreSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD93A1B31F282EEF005C151B /* StoreSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchUITests.swift; sourceTree = "<group>"; };
 		AD93A1B51F282EEF005C151B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD93A1C11F284283005C151B /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		AD93A1C31F285194005C151B /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				AD93A1901F282EEE005C151B /* AppDelegate.swift */,
-				AD93A1921F282EEF005C151B /* ViewController.swift */,
+				AD93A1921F282EEF005C151B /* SearchViewController.swift */,
+				AD5C88291F286DCB0029EEEB /* SearchResultCell.swift */,
+				AD93A1C31F285194005C151B /* SearchResultCell.xib */,
+				AD93A1C11F284283005C151B /* SearchResult.swift */,
 				AD93A1941F282EEF005C151B /* Main.storyboard */,
 				AD93A19A1F282EEF005C151B /* Assets.xcassets */,
 				AD93A19C1F282EEF005C151B /* LaunchScreen.storyboard */,
@@ -234,6 +243,7 @@
 			files = (
 				AD93A19E1F282EEF005C151B /* LaunchScreen.storyboard in Resources */,
 				AD93A19B1F282EEF005C151B /* Assets.xcassets in Resources */,
+				AD93A1C41F285194005C151B /* SearchResultCell.xib in Resources */,
 				AD93A1961F282EEF005C151B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,9 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD93A1931F282EEF005C151B /* ViewController.swift in Sources */,
+				AD93A1931F282EEF005C151B /* SearchViewController.swift in Sources */,
 				AD93A1911F282EEE005C151B /* AppDelegate.swift in Sources */,
+				AD93A1C21F284283005C151B /* SearchResult.swift in Sources */,
 				AD93A1991F282EEF005C151B /* StoreSearch.xcdatamodeld in Sources */,
+				AD5C882A1F286DCB0029EEEB /* SearchResultCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +540,7 @@
 				AD93A1BA1F282EEF005C151B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AD93A1BB1F282EEF005C151B /* Build configuration list for PBXNativeTarget "StoreSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +549,7 @@
 				AD93A1BD1F282EEF005C151B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AD93A1BE1F282EEF005C151B /* Build configuration list for PBXNativeTarget "StoreSearchUITests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +558,7 @@
 				AD93A1C01F282EEF005C151B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
