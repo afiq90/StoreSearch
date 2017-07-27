@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AD5C882A1F286DCB0029EEEB /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5C88291F286DCB0029EEEB /* SearchResultCell.swift */; };
+		AD7E7BF41F2983BE00D928E1 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7E7BF31F2983BE00D928E1 /* LoadingCell.xib */; };
+		AD85143A1F298C8B008FE540 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8514391F298C8B008FE540 /* NothingFoundCell.xib */; };
 		AD93A1911F282EEE005C151B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD93A1901F282EEE005C151B /* AppDelegate.swift */; };
 		AD93A1931F282EEF005C151B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD93A1921F282EEF005C151B /* SearchViewController.swift */; };
 		AD93A1961F282EEF005C151B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD93A1941F282EEF005C151B /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		AD5C88291F286DCB0029EEEB /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		AD7E7BF31F2983BE00D928E1 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		AD8514391F298C8B008FE540 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NothingFoundCell.xib; path = "../../iOS Ray Books/The iOS Apprentice 4 - StoreSearch/Source Code/04 - Async Networking/StoreSearch/NothingFoundCell.xib"; sourceTree = "<group>"; };
 		AD93A18D1F282EEE005C151B /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD93A1901F282EEE005C151B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD93A1921F282EEF005C151B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 				AD93A1921F282EEF005C151B /* SearchViewController.swift */,
 				AD5C88291F286DCB0029EEEB /* SearchResultCell.swift */,
 				AD93A1C31F285194005C151B /* SearchResultCell.xib */,
+				AD7E7BF31F2983BE00D928E1 /* LoadingCell.xib */,
+				AD8514391F298C8B008FE540 /* NothingFoundCell.xib */,
 				AD93A1C11F284283005C151B /* SearchResult.swift */,
 				AD93A1941F282EEF005C151B /* Main.storyboard */,
 				AD93A19A1F282EEF005C151B /* Assets.xcassets */,
@@ -243,7 +249,9 @@
 			files = (
 				AD93A19E1F282EEF005C151B /* LaunchScreen.storyboard in Resources */,
 				AD93A19B1F282EEF005C151B /* Assets.xcassets in Resources */,
+				AD85143A1F298C8B008FE540 /* NothingFoundCell.xib in Resources */,
 				AD93A1C41F285194005C151B /* SearchResultCell.xib in Resources */,
+				AD7E7BF41F2983BE00D928E1 /* LoadingCell.xib in Resources */,
 				AD93A1961F282EEF005C151B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

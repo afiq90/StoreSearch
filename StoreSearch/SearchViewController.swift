@@ -12,6 +12,8 @@ class SearchViewController: UIViewController {
     
     struct TableViewCellIdentifiers {
         static let searchResultCell = "SearchResultCell"
+        static let loadingCell = "LoadingCell"
+        static let NothingFoundCell = "NothingFoundCell"
     }
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -19,19 +21,28 @@ class SearchViewController: UIViewController {
     
     var searchResults = [SearchResult]()
     var hasSearched = false
-    
+    var isLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
         
-        //add the serchResultCell nib
-        let cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil)
+        //add the searchResultCell nib
+        var cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.searchResultCell)
         tableView.rowHeight = 80
         
+        //add the loadingCell nib
+        cellNib = UINib(nibName: TableViewCellIdentifiers.loadingCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.loadingCell)
+        
+        //nothing found nib
+        cellNib = UINib(nibName: TableViewCellIdentifiers.NothingFoundCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.NothingFoundCell)
+        
         searchBar.becomeFirstResponder()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -223,31 +234,42 @@ extension SearchViewController: UISearchBarDelegate {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
             
+            isLoading = true
+            tableView.reloadData()
+            
             hasSearched = true
             searchResults = []
             
-            let url = iTunesURL(searchText: searchBar.text!)
-            print("URL: \(url)")
-            if let jsonString = performStoreRequest(with: url) {
-                print("Received JSON string: \(jsonString)")
-                if let jsonDictionary = parse(json: jsonString) {
-                    print("Dictionary: \(jsonDictionary)")
+            let url = self.iTunesURL(searchText: searchBar.text!)
+            let queue = DispatchQueue.global()
+            
+            queue.async {
+                
+               if let jsonString = self.performStoreRequest(with: url),
+                    let jsonDictionary = self.parse(json: jsonString) {
                     
-                    searchResults = parse(dictionary: jsonDictionary)
-                    /*sort by ascending*/
-                    searchResults.sort(by: { (result1, result2) -> Bool in
+                    self.searchResults = self.parse(dictionary: jsonDictionary)
+                
+                   /*sort by ascending*/
+                    self.searchResults.sort(by: { (result1, result2) -> Bool in
                         return result1.artistName.localizedStandardCompare(result2.artistName) == .orderedAscending
                     })
-                    
                     /*sort by descending using operator overloading > (greater than method) from SearchResult.swift*/
-                   // searchResults.sort { $0 > $1 }
-                    
-                    tableView.reloadData()
+                    // searchResults.sort { $0 > $1 }
+                
+                // All the UI stuff always need to put in main async
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    self.tableView.reloadData()
+                }
                     return
                 }
+                
+                DispatchQueue.main.async {
+                    self.showNetworkError()
+                }
+                
             }
-            
-            showNetworkError()
         }
     }
     
@@ -261,7 +283,10 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if !hasSearched {
+        if isLoading {
+            print("isLoading numberOfRowsInSection: \(isLoading)")
+            return 1
+        } else if !hasSearched {
             return 0
         } else if searchResults.count == 0 {
             return 1
@@ -272,13 +297,17 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.searchResultCell, for: indexPath) as! SearchResultCell
-        
-        if searchResults.count == 0 {
-            cell.nameLabel!.text = "Nothing Found"
-            cell.artistLabel!.text = "fatin comel"
-            cell.resultImageView.image = UIImage(named: "CloseButton")
+        if isLoading {
+            print("isLoading cellForRowAt: \(isLoading)")
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.loadingCell, for: indexPath)
+            let spinner = cell.viewWithTag(100) as! UIActivityIndicatorView
+            spinner.startAnimating()
+            return cell
+        } else if searchResults.count == 0 {
+            return tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.NothingFoundCell, for: indexPath)
         } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.searchResultCell, for: indexPath) as! SearchResultCell
+            
             let searchResult = searchResults[indexPath.row]
             cell.nameLabel!.text = searchResult.name
             if searchResult.artistName.isEmpty {
@@ -286,9 +315,9 @@ extension SearchViewController: UITableViewDataSource {
             } else {
                 cell.artistLabel.text = String(format: "%@ (%@)", searchResult.artistName, kindForDisplay(searchResult.kind))
             }
+            return cell
         }
         
-        return cell
     }
     
 }
@@ -302,7 +331,8 @@ extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         //make sure you can only select rows with actual search result, if no searchresult cannot select
-        if searchResults.count == 0 {
+        if searchResults.count == 0 || isLoading {
+            print("isLoading willSelectRowAt: \(isLoading)")
             return nil
         } else {
             return indexPath
