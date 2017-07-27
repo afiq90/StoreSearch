@@ -59,19 +59,9 @@ class SearchViewController: UIViewController {
         return url!
     }
     
-    func performStoreRequest(with url: URL) -> String? {
+    func parse(json data: Data) -> [String: Any]? {
         do {
-            return try String(contentsOf: url, encoding: .utf8)
-        } catch {
-            print("Download error: \(error)")
-            return nil
-        }
-    }
-    
-    func parse(json: String) -> [String:Any]? {
-        guard let data = json.data(using: .utf8, allowLossyConversion: false) else { return nil }
-        do {
-            return try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
+            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
         } catch {
             print("JSON error: \(error)")
             return nil
@@ -240,36 +230,46 @@ extension SearchViewController: UISearchBarDelegate {
             hasSearched = true
             searchResults = []
             
-            let url = self.iTunesURL(searchText: searchBar.text!)
-            let queue = DispatchQueue.global()
+            let url = iTunesURL(searchText: searchBar.text!)
             
-            queue.async {
+            let session = URLSession.shared
+            
+            let dataTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
                 
-               if let jsonString = self.performStoreRequest(with: url),
-                    let jsonDictionary = self.parse(json: jsonString) {
+                if let error = error {
+                    print("Failure! \(error)")
+                } else if let httpResponse = response as? HTTPURLResponse,
+                              httpResponse.statusCode == 200 {
                     
-                    self.searchResults = self.parse(dictionary: jsonDictionary)
+                    if let data = data, let jsonDictionary = self.parse(json: data) {
+                        self.searchResults = self.parse(dictionary: jsonDictionary)
+                        //sort searchResults by descending
+                        self.searchResults.sort(by: { (result1, result2) -> Bool in
+                            result1.name.localizedStandardCompare(result2.name) == .orderedDescending
+                        })
+                        //sort searchResults by ascending
+                        //self.searchResults.sort(by: >)
+                        
+                        DispatchQueue.main.async {
+                            self.isLoading = false
+                            self.tableView.reloadData()
+                        }
+                        return
+                    }
+                    
+                } else {
+                    print("Failure! \(String(describing: response))")
+                }
                 
-                   /*sort by ascending*/
-                    self.searchResults.sort(by: { (result1, result2) -> Bool in
-                        return result1.artistName.localizedStandardCompare(result2.artistName) == .orderedAscending
-                    })
-                    /*sort by descending using operator overloading > (greater than method) from SearchResult.swift*/
-                    // searchResults.sort { $0 > $1 }
-                
-                // All the UI stuff always need to put in main async
                 DispatchQueue.main.async {
+                    self.hasSearched = false
                     self.isLoading = false
                     self.tableView.reloadData()
-                }
-                    return
-                }
-                
-                DispatchQueue.main.async {
                     self.showNetworkError()
                 }
-                
-            }
+            })
+            
+            dataTask.resume()
         }
     }
     
