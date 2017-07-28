@@ -26,6 +26,8 @@
 		AD93A1C21F284283005C151B /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD93A1C11F284283005C151B /* SearchResult.swift */; };
 		AD93A1C41F285194005C151B /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD93A1C31F285194005C151B /* SearchResultCell.xib */; };
 		ADFF52A81F2B192700AF3BC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFF52A71F2B192700AF3BC9 /* Main.storyboard */; };
+		ADFF52AD1F2B1DCE00AF3BC9 /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF52AC1F2B1DCE00AF3BC9 /* LandscapeViewController.swift */; };
+		ADFF52AF1F2B2B4D00AF3BC9 /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF52AE1F2B2B4A00AF3BC9 /* FadeOutAnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		AD93A1C11F284283005C151B /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		AD93A1C31F285194005C151B /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		ADFF52A71F2B192700AF3BC9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		ADFF52AC1F2B1DCE00AF3BC9 /* LandscapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
+		ADFF52AE1F2B2B4A00AF3BC9 /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +135,9 @@
 				AD1730F31F29EBDD00331437 /* DimmingPresentationController.swift */,
 				AD3623911F2AE0C200208B66 /* GradientView.swift */,
 				AD3623951F2AF3F700208B66 /* SlideOutAnimationController.swift */,
+				ADFF52AE1F2B2B4A00AF3BC9 /* FadeOutAnimationController.swift */,
 				AD3623931F2AE67900208B66 /* BounceAnimationController.swift */,
+				ADFF52AC1F2B1DCE00AF3BC9 /* LandscapeViewController.swift */,
 				AD93A19A1F282EEF005C151B /* Assets.xcassets */,
 				AD93A19C1F282EEF005C151B /* LaunchScreen.storyboard */,
 				AD93A19F1F282EEF005C151B /* Info.plist */,
@@ -312,7 +318,9 @@
 				AD93A1991F282EEF005C151B /* StoreSearch.xcdatamodeld in Sources */,
 				AD5C882A1F286DCB0029EEEB /* SearchResultCell.swift in Sources */,
 				AD3623961F2AF3F700208B66 /* SlideOutAnimationController.swift in Sources */,
+				ADFF52AF1F2B2B4D00AF3BC9 /* FadeOutAnimationController.swift in Sources */,
 				AD1730F21F29E16800331437 /* DetailViewController.swift in Sources */,
+				ADFF52AD1F2B1DCE00AF3BC9 /* LandscapeViewController.swift in Sources */,
 				AD3623921F2AE0C200208B66 /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

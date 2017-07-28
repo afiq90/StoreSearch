@@ -10,6 +10,11 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    enum AnimationStyle {
+        case slide
+        case fade
+    }
+    
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var artworkImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -20,6 +25,7 @@ class DetailViewController: UIViewController {
     
     var searchResult: SearchResult!
     var downloadTask: URLSessionDownloadTask?
+    var dismissAnimationStyle = AnimationStyle.fade
     
     //Recall that init?(coder) is invoked to load the view controller from the storyboard.
     //Here you tell UIKit that this view controller uses a custom presentation and you set the delegate that will call the method you just implemented
@@ -57,6 +63,7 @@ class DetailViewController: UIViewController {
     // MARK - IBAction Stuff
     
     @IBAction func close() {
+        dismissAnimationStyle = .slide
         dismiss(animated: true, completion: nil)
     }
     
@@ -122,7 +129,13 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SlideOutAnimationController()
+        switch dismissAnimationStyle {
+        case .slide:
+            return SlideOutAnimationController()
+        case .fade:
+            return FadeOutAnimationController()
+        }
+        
     }
 }
 

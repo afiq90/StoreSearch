@@ -24,6 +24,7 @@ class SearchViewController: UIViewController {
     var hasSearched = false
     var isLoading = false
     var dataTask: URLSessionDataTask?
+    var landscapeViewController: LandscapeViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,56 @@ class SearchViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        
+        switch newCollection.verticalSizeClass {
+        case .compact:
+            showLandscape(with: coordinator)
+        default:
+            hideLandscape(with: coordinator)
+        }
+    }
+    
+    func showLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+        guard landscapeViewController == nil else { return }
+        
+        landscapeViewController = storyboard!.instantiateViewController(withIdentifier: "LandscapeViewController") as? LandscapeViewController
+        if let controller = landscapeViewController {
+            controller.view.frame = view.bounds
+            controller.view.alpha = 0
+            
+            view.addSubview(controller.view)
+            addChildViewController(controller)
+            
+            //add the fade animation
+            coordinator.animate(alongsideTransition: { (_) in
+                controller.view.alpha = 1
+                self.searchBar.resignFirstResponder()
+                //hide the popupview
+                if self.presentedViewController != nil {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }, completion: { (_) in
+                controller.didMove(toParentViewController: self)
+            })
+        }
+    }
+    
+    func hideLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+        if let controller = landscapeViewController {
+            controller.willMove(toParentViewController: nil)
+            
+            coordinator.animate(alongsideTransition: { (_) in
+                controller.view.alpha = 0
+            }, completion: { (_) in
+                controller.view.removeFromSuperview()
+                controller.removeFromParentViewController()
+                self.landscapeViewController = nil
+            })
+        }
     }
     
     //MARK - Networking Method
@@ -208,7 +259,7 @@ class SearchViewController: UIViewController {
     }
     
     func showNetworkError() {
-        let alert = UIAlertController(title: "Whoopss...", message: "There was an erro from the iTunes", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Whoopss...", message: "There was an error from the iTunes", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         
