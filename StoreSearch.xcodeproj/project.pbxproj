@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AD1730F01F29D3E000331437 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1730EF1F29D3E000331437 /* UIImageView+DownloadImage.swift */; };
+		AD1730F21F29E16800331437 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1730F11F29E16800331437 /* DetailViewController.swift */; };
+		AD1730F41F29EBDD00331437 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1730F31F29EBDD00331437 /* DimmingPresentationController.swift */; };
 		AD5C882A1F286DCB0029EEEB /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5C88291F286DCB0029EEEB /* SearchResultCell.swift */; };
 		AD7E7BF41F2983BE00D928E1 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7E7BF31F2983BE00D928E1 /* LoadingCell.xib */; };
 		AD85143A1F298C8B008FE540 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8514391F298C8B008FE540 /* NothingFoundCell.xib */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		AD1730EF1F29D3E000331437 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		AD1730F11F29E16800331437 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		AD1730F31F29EBDD00331437 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		AD5C88291F286DCB0029EEEB /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		AD7E7BF31F2983BE00D928E1 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		AD8514391F298C8B008FE540 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NothingFoundCell.xib; path = "../../iOS Ray Books/The iOS Apprentice 4 - StoreSearch/Source Code/04 - Async Networking/StoreSearch/NothingFoundCell.xib"; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				AD8514391F298C8B008FE540 /* NothingFoundCell.xib */,
 				AD93A1C11F284283005C151B /* SearchResult.swift */,
 				AD93A1941F282EEF005C151B /* Main.storyboard */,
+				AD1730F11F29E16800331437 /* DetailViewController.swift */,
+				AD1730F31F29EBDD00331437 /* DimmingPresentationController.swift */,
 				AD93A19A1F282EEF005C151B /* Assets.xcassets */,
 				AD93A19C1F282EEF005C151B /* LaunchScreen.storyboard */,
 				AD93A19F1F282EEF005C151B /* Info.plist */,
@@ -283,9 +289,11 @@
 				AD93A1931F282EEF005C151B /* SearchViewController.swift in Sources */,
 				AD93A1911F282EEE005C151B /* AppDelegate.swift in Sources */,
 				AD1730F01F29D3E000331437 /* UIImageView+DownloadImage.swift in Sources */,
+				AD1730F41F29EBDD00331437 /* DimmingPresentationController.swift in Sources */,
 				AD93A1C21F284283005C151B /* SearchResult.swift in Sources */,
 				AD93A1991F282EEF005C151B /* StoreSearch.xcdatamodeld in Sources */,
 				AD5C882A1F286DCB0029EEEB /* SearchResultCell.swift in Sources */,
+				AD1730F21F29E16800331437 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
