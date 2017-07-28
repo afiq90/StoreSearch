@@ -45,6 +45,7 @@ class DetailViewController: UIViewController {
             updateUI()
         }
         
+        view.backgroundColor = UIColor.clear
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,6 +116,14 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
         return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
     }
     
+    //Apply bounce animation to DetailViewController
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return BounceAnimationController()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return SlideOutAnimationController()
+    }
 }
 
 extension DetailViewController: UIGestureRecognizerDelegate {
