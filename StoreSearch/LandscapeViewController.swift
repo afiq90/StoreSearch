@@ -9,11 +9,31 @@
 import UIKit
 
 class LandscapeViewController: UIViewController {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pageControl: UIPageControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //clean out autolayout for pageControl and scrollView
+        view.removeConstraints(view.constraints)
+        view.translatesAutoresizingMaskIntoConstraints = true
+        
+        pageControl.removeConstraints(pageControl.constraints)
+        pageControl.translatesAutoresizingMaskIntoConstraints = true
+        
+        scrollView.removeConstraints(scrollView.constraints)
+        scrollView.translatesAutoresizingMaskIntoConstraints = true
+        
+        scrollView.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        //Remember that the bounds describe the rectangle that makes up the inside of a view, while the frame describes the outside of the view.
+        scrollView.frame = CGRect(x: 0, y: view.frame.size.height - pageControl.frame.size.height, width: view.frame.size.width, height: pageControl.frame.size.height)
     }
 
     override func didReceiveMemoryWarning() {
