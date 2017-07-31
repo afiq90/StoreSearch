@@ -43,5 +43,9 @@ func > (lhs:SearchResult, rhs:SearchResult ) -> Bool {
     return lhs.name.localizedStandardCompare(rhs.name) == .orderedDescending
 }
 
+func < (lhs:SearchResult, rhs:SearchResult) -> Bool {
+    return lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
+}
+
 
 

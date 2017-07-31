@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42047FFE1F2EE6B6001B8DD9 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42047FFD1F2EE6B6001B8DD9 /* Search.swift */; };
 		AD1730F01F29D3E000331437 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1730EF1F29D3E000331437 /* UIImageView+DownloadImage.swift */; };
 		AD1730F21F29E16800331437 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1730F11F29E16800331437 /* DetailViewController.swift */; };
 		AD1730F41F29EBDD00331437 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1730F31F29EBDD00331437 /* DimmingPresentationController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42047FFD1F2EE6B6001B8DD9 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		AD1730EF1F29D3E000331437 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		AD1730F11F29E16800331437 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AD1730F31F29EBDD00331437 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				ADFF52AE1F2B2B4A00AF3BC9 /* FadeOutAnimationController.swift */,
 				AD3623931F2AE67900208B66 /* BounceAnimationController.swift */,
 				ADFF52AC1F2B1DCE00AF3BC9 /* LandscapeViewController.swift */,
+				42047FFD1F2EE6B6001B8DD9 /* Search.swift */,
 				AD93A19A1F282EEF005C151B /* Assets.xcassets */,
 				AD93A19C1F282EEF005C151B /* LaunchScreen.storyboard */,
 				AD93A19F1F282EEF005C151B /* Info.plist */,
@@ -322,6 +325,7 @@
 				AD1730F21F29E16800331437 /* DetailViewController.swift in Sources */,
 				ADFF52AD1F2B1DCE00AF3BC9 /* LandscapeViewController.swift in Sources */,
 				AD3623921F2AE0C200208B66 /* GradientView.swift in Sources */,
+				42047FFE1F2EE6B6001B8DD9 /* Search.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
