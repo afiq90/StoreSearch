@@ -214,31 +214,42 @@
             <point key="canvasLocation" x="841.875" y="122.53521126760563"/>
         </scene>
         <!--Landscape View Controller-->
-        <scene sceneID="2D0-Rk-sCj">
+        <scene sceneID="6ks-ly-Teo">
             <objects>
-                <viewController storyboardIdentifier="LandscapeViewController" id="Tsh-GA-EHe" customClass="LandscapeViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LandscapeViewController" id="TLf-yh-mbR" customClass="LandscapeViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8xd-UV-byj"/>
-                        <viewControllerLayoutGuide type="bottom" id="isL-4d-YrM"/>
+                        <viewControllerLayoutGuide type="top" id="UAr-DB-raf"/>
+                        <viewControllerLayoutGuide type="bottom" id="FTn-4m-jzq"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4rm-h3-qmI">
+                    <view key="view" contentMode="scaleToFill" id="U3o-dW-Qn1">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello world" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCF-Cp-g1a">
-                                <rect key="frame" x="191" y="150" width="186" height="21"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="340-hL-3tH">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <connections>
+                                    <outlet property="delegate" destination="TLf-yh-mbR" id="xkP-Eh-xWd"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="eLu-vL-11a">
+                                <rect key="frame" x="264" y="250" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="pageChanged:" destination="TLf-yh-mbR" eventType="valueChanged" id="mvB-mU-9Ej"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="eLu-vL-11a" id="If5-e5-K0r"/>
+                        <outlet property="scrollView" destination="340-hL-3tH" id="9Kd-bt-Tph"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gve-pu-ciB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hYk-35-tN7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111.97183098591549" y="851.25"/>
+            <point key="canvasLocation" x="136" y="919"/>
         </scene>
     </scenes>
     <resources>
